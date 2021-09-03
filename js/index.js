@@ -7,8 +7,9 @@ const toggleSpinner = displayStyle => {
 const searchBook = () => {
     
     const searchBox = document.getElementById('search-field');
+    
     const searchText = searchBox.value ;
-    toggleSpinner('block'); 
+    // 
    
     //clear search box
     searchBox.value = '';
@@ -21,8 +22,8 @@ const searchBook = () => {
     }
     // load searchBox data 
     else{
-        
-     const url = `http://openlibrary.org/search.json?q=${searchText}`
+        toggleSpinner('block'); 
+     const url = `https://openlibrary.org/search.json?q=${searchText}`
      fetch(url)
     .then(res => res.json())
     .then(data => displaySearchResult(data.docs , data)) 
